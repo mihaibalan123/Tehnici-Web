@@ -9,14 +9,15 @@
     <meta name="description"
         content=" Vinyllium : vinyl-uri din orice gen muzical (rock, pop, electonic, etc.) - achiziții online și livrare la domiciliu.">
     <meta name="keywords" content="Vinyllium: muzica, vinyl, disc, albume, LP, rock, pop, București">
-    <link rel="icon" type="image/png" href="./resurse/imagini/ico/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="./resurse/imagini/ico/favicon.svg" />
-    <link rel="shortcut icon" href="./resurse/imagini/ico/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="./resurse/imagini/ico/apple-touch-icon.png" />
-    <link rel="manifest" href="./resurse/imagini/ico/site.webmanifest" />
+    <link rel="icon" type="image/png" href="/resurse/imagini/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/resurse/imagini/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="/resurse/imagini/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/resurse/imagini/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="/resurse/imagini/favicon/site.webmanifest" />
     <meta name="msapplication-TileColor" content="#1a1a1a" />
     <link rel="stylesheet" href="./resurse/css/general.css" type="text/css" />
     <link rel="stylesheet" href="./resurse/css/nav.css" type="text/css" />
+    <link rel="stylesheet" href="./resurse/css/reset.css" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,402 +31,438 @@
             <img src="resurse/imagini/sigla.png" alt="Sigla magazinului Vinyllium" />
         </a>
         <nav>
+            <label id="hamburger" for="ch-menu">
+                <img src="resurse/imagini/Hamburger_icon_alb.png" alt="menu">    
+            </label>
+            <input type="checkbox" id="ch-menu"/>
             <ul class="meniu">
                 <li>
-                    Acasă
+                    <div class="text-icon" id="acasa">Acasa</div>
+                    <div class="imag-icon" id="acasa-mediu">
+                        <span class="fas fa-regular fa-house"></span>
+                    </div>
                     <ul>
-                        <li><a href="#welcome">Bun venit</a></li>
-                        <li><a href="#promotii">Promoții</a></li>
-                        <li><a href="#produse">Produse</a></li>
-                        <li><a href="#orar">Orar</a></li>
+                        <li><a href="#welcome">Bine ati venit</a></li>
+                        <li><a href="#promotii">Promotii</a></li>
                         <li><a href="#anunturi">Anunturi</a></li>
+                        <li><a href="#produse">Oferta</a></li>
+                        <li><a href="#orar">Orar</a></li>
+                        <li><a href="#index-intrebari">Întrebări</a></li>
                     </ul>
                 </li>
-                <li><a href="despre.html">Despre noi</a></li>
-                <li><a href="produse.html">Produse</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li>
+                        <a href="#" class="link-inregistrare">
+                         <div class="text-icon">Inregistrare</div>
+                         <div class="imag-icon"><span class="fas fa-solid fa-book"></span></div>
+                        </a>
+                </li>
+                <li><div>Despre</div>
+                    <ul>                        
+                        <li><a href="despre.html#prezentare">Prezentare</a></li>
+                        <li><a href="despre.html#istoric">Istoric</a></li>
+                        <li><a href="despre.html#motivatie">Motivatie</a></li>
+                        <li><a href="despre.html#galerie">Galerie</a></li>
+                    </ul>
+                </li>
+                <li><div>Produse</div>
+                    <ul>
+                        <li><a href="#">Toate</a></li>
+                        <li><a href="#">Rock</a></li>
+                        <li><a href="#">Jazz</a></li>
+                        <li><a href="#">Electronică</a></li>
+                    </ul>
+                </li>
+                <li><a href="#"><i class="fa-regular fa-envelope"></i> Contact</a></li>
             </ul>
         </nav>
     </header>
+
     <main>
         <div id="grid-pagina">
-            <section id="welcome">
-                <hgroup>
-                    <h2>Bine ati venit!</h2>
-                    <p class="subtitlu">Prezentarea magazinului</p>
-                </hgroup>
-
-                <p class="intro">Vă mulțumim că ne vizitați site-ul dedicat pasionaților de <b>muzică</b>.</p>
-
-                <div class="intro-oferte">
-                    <div>Rock</div>
-                    <div>Pop</div>
-                    <div>Jazz</div>
-                    <div>Electronică</div>
-                    <div>Clasică</div>
+            
+           <section id="welcome">
+    <hgroup>
+        <h2>Bine ați venit în universul Vinyllium!</h2>
+        <p class="subtitlu">Destinația perfectă pentru iubitorii de sunet analogic</p>
+    </hgroup>
+    
+    <p class="intro">Vă mulțumim că ne vizitați site-ul dedicat pasionaților de <b>muzică</b>. Aici, fiecare disc ascunde o poveste, iar sunetul cald al vinilului te transpune direct în inima studioului de înregistrări. Fie că ești la început de drum în lumea muzicii analogice sau un colecționar avid în căutarea acelei ediții rare, magazinul nostru îți oferă o selecție atent curată. Explorați rafturile noastre virtuale și lăsați-vă inspirați de magia muzicii pe format fizic.</p>
+    
+    <div class="intro-oferte">
+        <div>Rock</div>
+        <div>Pop</div>
+        <div>Jazz</div>
+        <div>Electronică</div>
+        <div>Clasică</div>
+        <div>Blues</div>
+        <div>Folk</div>
+    </div>
+    
+    <p class="anunt intro">Puteți alege să ascultați <strong>vinyl-ul</strong> preferat în incinta magazinului nostru. Sistemele noastre audio de înaltă fidelitate sunt pregătite zilnic pentru a vă oferi o experiență de neuitat. Dacă sunteți mulțumit de calitatea sunetului, îl puteți achiziționa direct de la locație sau plasa o comandă online.</p>
+    
+    <div id="dv-prezentare-1">
+        <figure id="dv-prezentare">
+            <picture>
+                <source srcset="./resurse/imagini/pickup-mic.jpg" media="(max-width:700px)" />
+                <source srcset="./resurse/imagini/pickup-mediu.jpg" media="(max-width:1200px)" />
+                <img src="./resurse/imagini/pickup-mare.jpg" alt="Pickup clasic" title="Pickup vintage rulând un disc" />
+            </picture>
+            <figcaption>Echipamentul nostru de audiție din magazin.</figcaption>
+        </figure>
+    </div>
+    
+    <hr class="separator" />
+    
+    <div id="container-video">
+        <img style="width:50%" class="farfurie" src="resurse/imagini/farfurie-flori-albastre.png" alt="decor muzical" title="Decor muzical">
+        <div id="centrare-video">
+            <div id="clip-video">
+                <div id="stil-video">
+                    <video width="320" height="240" playsinline autoplay loop muted>
+                        <source src="resurse/video/Chocolate.mp4" type="video/mp4">
+                        <source src="resurse/video/Chocolate.ogv" type="video/ogv">
+                        <track default src="data:image/png;base64,V0VC..." kind="captions" srclang="ro" label="romana">
+                    </video>
                 </div>
-                <p class="anunt intro">Puteți alege să ascultați <strong>vinyl-ul</strong> preferat în incinta
-                    magazinului nostru, iar dacă sunteți mulțumit de calitatea sunetului, îl puteți
-                    achiziționa direct de la locație sau online, prin intermediul site-ului.</p>
-                <div id="dv-prezentare-1">
-                    <figure id="dv-prezentare">
-                        <picture>
-                            <source srcset="./resurse/imagini/pickup-mic.jpg" media="(max-width:700px)" />
-                            <source srcset="./resurse/imagini/pickup-mediu.jpg" media="(max-width:1200px)" />
-                            <img src="./resurse/imagini/pickup-mare.jpg" alt="Pickup clasic"
-                                title="Pickup vintage rulând un disc" />
-                        </picture>
-                        <figcaption>Echipamentul nostru de audiție din magazin.</figcaption>
-                    </figure>
-                </div>
-                <!-- <hr class="prajituri" />
-                <div id="container-video">
-                    <img style="width:50%" class="farfurie" src="resurse/imagini/farfurie-flori-albastre.png"
-                        alt="farfurie" title="O farfurie cu flori">
-                    <div id="centrare-video">
-                        <div id="clip-video">
-                            <div id="stil-video">
-                                <video width="320" height="240" playsinline autoplay loop muted>
-                                    <source src="resurse/video/Chocolate.mp4" type="video/mp4">
-                                    <source src="resurse/video/Chocolate.ogv" type="video/ogv">
-                                    <track default
-                                        src="data:image/png;base64, V0VCVlRUIC0gQ2lvY29sYXTEgwoKMDA6MDAuMDAwIC0tPiAwMDowMy4wMDAgbGluZTowCkNpb2NvbGF0xIMhISEKCjAwOjAzLjAwMCAtLT4gMDA6MDcuMDAwIGxpbmU6MApNdWx0xIMgY2lvY29sYXTEgyEhISEKCjAwOjA5LjAwMCAtLT4gMDA6MTQuMDAwIGxpbmU6MApVcHMsIGFtIG11cmTEg3JpdCBtYXNhIQoKMDA6MTQuNTAwIC0tPiAwMDoxOS4wMDAgbGluZTowCk51IGNvbnRlYXrEgyEgQ2lvY29sYXTEg8SDxIPEg8SDxIMhCgo="
-                                        kind="captions" srclang="ro" label="romana">
-                                    <track
-                                        src="data:image/png;base64, V0VCVlRUIC0gQ2hvY29sYXRlDQoNCjAwOjAwLjAwMCAtLT4gMDA6MDMuMDAwDQpDaG9jb2xhdGUhISENCg0KMDA6MDMuMDAwIC0tPiAwMDowNy4wMDANCkxvdHMgb2YgY2hvY29sYXRlISEhIQ0KDQowMDowOS4wMDAgLS0+IDAwOjE0LjAwMA0KT3VwcywgdGFibGUgZ290IGRpcnR5IQ0KDQowMDoxNC41MDAgLS0+IDAwOjE5LjAwMA0KRG9lc24ndCBtYXR0ZXIhIENob2NvbGF0ZSEhIQ0KDQo="
-                                        kind="captions" srclang="en" label="engleza">
-                                </video>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
-            </section>
-            <section id="promotii">
-                <h2>Promoții și oferte</h2>
-                <article>
-                    <h3 class="titlu">Super ofertă de weekend</h3>
-                    <p><b>Vinyllium</b> oferă <b>reduceri de <s>20%</s> <ins>25%</ins></b> pentru toate
-                        produsele cumpărate în intervalul 8-10.</p>
-                    <p>Oferta este valabilă doar în zilele de sâmbătă și duminică la sediile <abbr
-                            title="magazinului Vinyllium">CD</abbr>.</p>
-                    <p>În cazul în care cumpărați mai mult de trei <b>discuri</b> primiși unul cadou din partea noastră!
-                    </p>
-                </article>
-                <article>
-                    <h3>Ofertă pachet</h3>
-                    <p>Magazinul Vinyllium oferă pachetul <i lang="en">Rockstadt Pack</i>, cuprinzând:</p>
-                    <ol>
-                        <li>Un set de 4 vinyl-uri din subgenuri rock diferite</li>
-                        <li>O cutie gravată cu sigla festivalului pentru depozitarea a 10 vinyl-uri</li>
-                        <li>Gratis: o fibră de satin pentru îngrijirea pick-up-ului</li>
-                        <li>Gratis: un ac de schimb pentru pick-up</li>
-                    </ol>
-                </article>
-                <article>
-                    <h3>Vinyl-uri tematice</h3>
-                    <p>Noi punem suflet atunci când ascultăm muzică... </p>
-                    <p>În preajma sărbătorilor de orice fel, disc-urile tematice au reduceri speciale:</p>
-                    <ol>
-                        <li>Orice vinyl Mariah Carey la jumătate de preț de Crăciun!</li>
-                        <li>De Halloween reducere la discografia trupei... Helloween!</li>
-                        <li>De ziua îndragostiților, orice al doilea vinyl Jazz cumpărat vine la jumătate de preț!</li>
-                    </ol>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="formula-sunet">
+    <h3>Formula Sunetului (Transformata Fourier)</h3>
+    <math xmlns="http://www.w3.org/1998/Math/MathML" display="block" class="formula-audio">
+        <mrow>
+            <mover>
+                <mi>X</mi>
+                <mo>^</mo>
+            </mover>
+            <mo stretchy="false">(</mo>
+            <mi>f</mi>
+            <mo stretchy="false">)</mo>
+            <mo>=</mo>
+            <msubsup>
+                <mo>&#x222B;</mo>
+                <mrow>
+                    <mo>&#x2212;</mo>
+                    <mi>&#x221E;</mi>
+                </mrow>
+                <mi>&#x221E;</mi>
+            </msubsup>
+            <mi>x</mi>
+            <mo stretchy="false">(</mo>
+            <mi>t</mi>
+            <mo stretchy="false">)</mo>
+            <mo>&#x22C5;</mo>
+            <msup>
+                <mi>e</mi>
+                <mrow>
+                    <mo>&#x2212;</mo>
+                    <mi>i</mi>
+                    <mn>2</mn>
+                    <mi>&#x03C0;</mi>
+                    <mi>f</mi>
+                    <mi>t</mi>
+                </mrow>
+            </msup>
+            <mi>d</mi>
+            <mi>t</mi>
+        </mrow>
+    </math>
+</section>
 
-                </article>
-            </section>
-            <section id="produse">
-                <h2>Produsele noastre</h2>
-                <p>Status stoc ediții limitate (Alternosfera):
-                    <meter min="0" max="50" low="10" high="40" optimum="45" value="5">5 bucăți</meter> (Stoc critic)
-                </p>
-                <p>Satisfacția clienților audiofili:
-                    <meter min="0" max="100" low="40" high="80" optimum="95" value="95">95%</meter> (Excelent)
-                </p>
-                <p>Vă oferim o multitudine de variante care fac ascultatul de muzică cu adevărat o experiență:</p>
-                <section>
-                    <h3>Vinyl-uri 33 RPM</h3>
-                    <p>Din această gamă, pe subgenuri:</p>
-                    <ul>
-                        <li>pop</li>
-                        <li>folk</li>
-                        <li>populară</li>
-                    </ul>
-                </section>
-                <section>
-                    <h3>Vinyl-uri 45 RPM</h3>
-                    <p>Subgenuri ale acestui tip:</p>
-                    <ul>
-                        <li>rock</li>
-                        <li>electronică</li>
-                        <li>clasică</li>
-                        <li>pop</li>
-                        <li>jazz</li>
-                        <li>rap</li>
-                    </ul>
-                </section>
-
-                <section>
-                    <h3>Aparate pick-up</h3>
-                    <p>Aparatele noastre pick-up provin de la cele mai renumite firme din industrie:</p>
-                    <ul>
-                        <li>Audio-Tehnica</li>
-                        <li>Sony</li>
-                        <li>Pioneer</li>
-                        <li>Pro-Ject</li>
-                        <li>Rega</li>
-                    </ul>
-                </section>
-            </section>
-            <section id="orar">
+<section id="orar">
                 <h2>Orar</h2>
-                <table id="tab-orar">
-                    <caption>Programul de funcționare a magazinului fizic Vinyllium</caption>
-                    <thead>
-
-                        <tr>
-                            <th>Cod</th>
-                            <th>Perioadă</th>
-                            <th>Zi</th>
-                            <th>Interval dimineata</th>
-                            <th>Pauza </th>
-                            <th>Interval seară</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td></td>
-                            <td rowspan="5">Zile<br />Lucrătoare</td>
-                            <td>Luni</td>
-                            <td>8-14</td>
-                            <td>14-16</td>
-                            <td>16-22</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-
-                            <td>Marti</td>
-                            <td>8-14</td>
-                            <td>14-16</td>
-                            <td>16-22</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-
-                            <td>Miercuri</td>
-                            <td>8-14</td>
-                            <td>14-16</td>
-                            <td>16-22</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-
-                            <td>Joi</td>
-                            <td>10-14</td>
-                            <td>14-16</td>
-                            <td>16-20</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-
-                            <td>Vineri</td>
-                            <td>10-14</td>
-                            <td>14-16</td>
-                            <td>16-20</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td rowspan="2">Weekend</td>
-                            <td>Sambata</td>
-                            <td>10-12</td>
-                            <td>-</td>
-                            <td>închis</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>Duminica</td>
-                            <td>închis</td>
-                            <td>-</td>
-                            <td>închis</td>
-                        </tr>
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <td colspan="6">Închis cu ocazia sărbătorilor legale.</td>
-                        </tr>
-                    </tfoot>
-                </table>
+                
+                <div class="container-tabel">
+                    <table id="tab-orar">
+                        <caption>Programul de funcționare a magazinului fizic Vinyllium</caption>
+                        <thead>
+                            <tr>
+                                <th>Cod</th>
+                                <th>Perioadă</th>
+                                <th>Zi</th>
+                                <th>Interval dimineata</th>
+                                <th>Pauza </th>
+                                <th>Interval seară</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td rowspan="5">Zile<br />Lucrătoare</td>
+                                <td>Luni</td>
+                                <td>8-14</td>
+                                <td>14-16</td>
+                                <td>16-22</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>Marti</td>
+                                <td>8-14</td>
+                                <td>14-16</td>
+                                <td>16-22</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>Miercuri</td>
+                                <td>8-14</td>
+                                <td>14-16</td>
+                                <td>16-22</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>Joi</td>
+                                <td>10-14</td>
+                                <td>14-16</td>
+                                <td>16-20</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>Vineri</td>
+                                <td>10-14</td>
+                                <td>14-16</td>
+                                <td>16-20</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td rowspan="2">Weekend</td>
+                                <td>Sambata</td>
+                                <td>10-12</td>
+                                <td>-</td>
+                                <td>închis</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>Duminica</td>
+                                <td>închis</td>
+                                <td>-</td>
+                                <td>închis</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="6">Închis cu ocazia sărbătorilor legale.</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
                 <p><strong>Atentie!!!</strong> in prima zi a lunii facem inventar.</p>
             </section>
+
+            <section id="calendar" class="placeholder">
+                <h2>Calendar Evenimente</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </section>
+
             <section id="anunturi">
                 <h2 class="fg-img">Evenimente și Anunțuri</h2>
-
                 <ul>
                     <li>
                         <time datetime="2026-04-18T10:00">18 aprilie 2026, ora 10:00</time> -
-                        <b>Record Store Day</b>: Sărbătorim ziua magazinelor independente de muzică! Aducem ediții
-                        limitate și discuri rare de vinil direct pe rafturile Vinyllium.
+                        <b>Record Store Day</b>: Sărbătorim ziua magazinelor independente de muzică! Aducem ediții limitate și discuri rare de vinil direct pe rafturile Vinyllium.
                     </li>
-
                     <li>
                         <time datetime="2026-05-10T18:30">10 mai 2026, ora 18:30</time> -
                         <b>Workshop</b>: Vino să înveți cum să reglezi corect brațul pentru a nu-ți zgâria discurile.
                     </li>
-
                     <li>
                         <time datetime="2026-06-05T12:00">5 iunie 2026, ora 12:00</time> -
-                        <b>Restocare masivă Classic Rock</b>: Am readus pe stoc cele mai căutate albume Pink Floyd,
-                        Queen și Led Zeppelin. Primul venit, primul servit!
+                        <b>Restocare masivă Classic Rock</b>: Am readus pe stoc cele mai căutate albume Pink Floyd, Queen și Led Zeppelin. Primul venit, primul servit!
                     </li>
-
                     <li>
                         <time datetime="2026-06-20T19:00">20 iunie 2026, ora 19:00</time> -
-                        <b>Audiție Jazz pe Vinil</b>: Dăm play la capodoperele lui Miles Davis și John Coltrane pe un
-                        sistem de top.
+                        <b>Audiție Jazz pe Vinil</b>: Dăm play la capodoperele lui Miles Davis și John Coltrane pe un sistem de top.
                     </li>
                 </ul>
             </section>
-            <section id="index-intrebari">
-                <h2>Întrebări frecvente</h2>
 
-                <details>
-                    <summary>Cumpărați sau vindeți discuri second-hand?</summary>
-                    <p>Da! Evaluăm cu mare atenție starea fiecărui disc folosind sistemul internațional de notare și le
-                        curățăm profesional înainte de a le pune pe raft.</p>
-                </details>
-
-                <details>
-                    <summary>Discul nou cumpărat „sare. E defect?</summary>
-                    <p>De cele mai multe ori, nu. Dacă problema persistă pe mai multe discuri, te așteptăm cu el în
-                        magazin pentru un test gratuit pe aparatele noastre!</p>
-                </details>
-
-                <details>
-                    <summary>Cum ar trebui să îmi depozitez corect colecția de vinyl-uri?</summary>
-                    <p>Întotdeauna <strong>vertical</strong>, ca pe niște cărți în bibliotecă! Nu le stivui niciodată
-                        unele peste altele pe orizontală (se vor deforma din cauza greutății) și ține-le departe de
-                        lumina directă a soarelui sau de calorifere.</p>
-                </details>
-
-                <details>
-                    <summary>Ascultatul la pick-up dă dependență și mă va face să judec prietenii care ascultă muzică la
-                        boxa telefonului?</summary>
-                    <p>Ne rezervăm dreptul de a nu răspunde oficial la această întrebare; dar... da, cel mai probabil!
-                    </p>
-                </details>
+            <section id="utilizatori" class="placeholder">
+                <h2>Utilizatori online</h2>
+                <ul>
+                    <li>Lorem ipsum user 1</li>
+                    <li>Lorem ipsum user 2</li>
+                    <li>Lorem ipsum user 3</li>
+                </ul>
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
             </section>
-            <figure id="fig1" class="fg-img">
-                <img src="resurse/imagini/briose-frisca.png" alt="briose">
-                <figcaption>Briose 1</figcaption>
-            </figure>
-            <figure id="fig2" class="fg-img">
-                <img src="resurse/imagini/briose-frisca.png" alt="briose">
-                <figcaption>Briose 2</figcaption>
-            </figure>
-            <figure id="fig3" class="fg-img">
-                <img src="resurse/imagini/briose-frisca.png" alt="briose">
-                <figcaption>Briose 3</figcaption>
-            </figure>
-            <figure id="fig4">
-                <img src="resurse/imagini/briose-frisca.png" alt="briose">
-                <figcaption>Briose 3</figcaption>
-            </figure>
 
-        </div>
-        <section id="galerie-statica">
-            <h2>Galerie</h2>
-            <div id="grid-galerie">
-                <figure>
-                    <div>
-                        <img src="resurse/imagini/vinyl1.png" alt="vinyl">
+            <section id="statistici" class="placeholder">
+                <h2>Statistici Utilizator</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </section>
+
+            <section id="server" class="placeholder">
+                <h2>Date Server</h2>
+                <p>Uptime: Lorem ipsum dolor sit amet.</p>
+                <p>Versiune: Consectetur adipiscing elit.</p>
+                <p>Trafic: Sed do eiusmod tempor incididunt.</p>
+            </section>
+
+            <div id="diverse">
+                
+                <section id="promotii">
+                    <h2>Promoții și oferte</h2>
+                    <article>
+                        <h3 class="titlu">Super ofertă de weekend</h3>
+                        <p><b>Vinyllium</b> oferă <b>reduceri de <s>20%</s> <ins>25%</ins></b> pentru toate produsele cumpărate în intervalul 8-10.</p>
+                        <p>Oferta este valabilă doar în zilele de sâmbătă și duminică la sediile <abbr title="magazinului Vinyllium">CD</abbr>.</p>
+                        <p>În cazul în care cumpărați mai mult de trei <b>discuri</b> primiți unul cadou din partea noastră!</p>
+                    </article>
+                    <article>
+                        <h3>Ofertă pachet</h3>
+                        <p>Magazinul Vinyllium oferă pachetul <i lang="en">Rockstadt Pack</i>, cuprinzând:</p>
+                        <ol>
+                            <li>Un set de 4 vinyl-uri din subgenuri rock diferite</li>
+                            <li>O cutie gravată cu sigla festivalului pentru depozitarea a 10 vinyl-uri</li>
+                            <li>Gratis: o fibră de satin pentru îngrijirea pick-up-ului</li>
+                            <li>Gratis: un ac de schimb pentru pick-up</li>
+                        </ol>
+                    </article>
+                    <article>
+                        <h3>Vinyl-uri tematice</h3>
+                        <p>Noi punem suflet atunci când ascultăm muzică... </p>
+                        <p>În preajma sărbătorilor de orice fel, disc-urile tematice au reduceri speciale:</p>
+                        <ol>
+                            <li>Orice vinyl Mariah Carey la jumătate de preț de Crăciun!</li>
+                            <li>De Halloween reducere la discografia trupei... Helloween!</li>
+                            <li>De ziua îndragostiților, orice al doilea vinyl Jazz cumpărat vine la jumătate de preț!</li>
+                        </ol>
+                    </article>
+                </section>
+
+                <section id="produse">
+                    <h2>Produsele noastre</h2>
+                    <p>Status stoc ediții limitate (Alternosfera):
+                        <meter min="0" max="50" low="10" high="40" optimum="45" value="5">5 bucăți</meter> (Stoc critic)
+                    </p>
+                    <p>Satisfacția clienților audiofili:
+                        <meter min="0" max="100" low="40" high="80" optimum="95" value="95">95%</meter> (Excelent)
+                    </p>
+                    <p>Vă oferim o multitudine de variante care fac ascultatul de muzică cu adevărat o experiență:</p>
+                    <section>
+                        <h3>Vinyl-uri 33 RPM</h3>
+                        <ul>
+                            <li>pop</li>
+                            <li>folk</li>
+                            <li>populară</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>Vinyl-uri 45 RPM</h3>
+                        <ul>
+                            <li>rock</li>
+                            <li>electronică</li>
+                            <li>clasică</li>
+                            <li>pop</li>
+                            <li>jazz</li>
+                            <li>rap</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>Aparate pick-up</h3>
+                        <ul>
+                            <li>Audio-Tehnica</li>
+                            <li>Sony</li>
+                            <li>Pioneer</li>
+                            <li>Pro-Ject</li>
+                            <li>Rega</li>
+                        </ul>
+                    </section>
+                </section>
+
+                <section id="index-intrebari">
+                    <h2>Întrebări frecvente</h2>
+                    <details>
+                        <summary>Cumpărați sau vindeți discuri second-hand?</summary>
+                        <p>Da! Evaluăm cu mare atenție starea fiecărui disc folosind sistemul internațional de notare și le curățăm profesional înainte de a le pune pe raft.</p>
+                    </details>
+                    <details>
+                        <summary>Discul nou cumpărat „sare". E defect?</summary>
+                        <p>De cele mai multe ori, nu. Dacă problema persistă pe mai multe discuri, te așteptăm cu el în magazin pentru un test gratuit pe aparatele noastre!</p>
+                    </details>
+                    <details>
+                        <summary>Cum ar trebui să îmi depozitez corect colecția de vinyl-uri?</summary>
+                        <p>Întotdeauna <strong>vertical</strong>, ca pe niște cărți în bibliotecă! Nu le stivui niciodată unele peste altele pe orizontală și ține-le departe de lumina directă a soarelui sau de calorifere.</p>
+                    </details>
+                    <details>
+                        <summary>Ascultatul la pick-up dă dependență?</summary>
+                        <p>Ne rezervăm dreptul de a nu răspunde oficial la această întrebare; dar... da, cel mai probabil!</p>
+                    </details>
+                </section>
+
+                <figure id="fig1" class="fg-img">
+                    <img src="resurse/imagini/briose-frisca.png" alt="disc vinyl editie limitata">
+                    <figcaption>Vinyl Ediție Limitată</figcaption>
+                </figure>
+                <figure id="fig2" class="fg-img">
+                    <img src="resurse/imagini/briose-frisca.png" alt="accesorii intretinere">
+                    <figcaption>Kit Întreținere Vinyl</figcaption>
+                </figure>
+                <figure id="fig3" class="fg-img">
+                    <img src="resurse/imagini/briose-frisca.png" alt="huse protectie">
+                    <figcaption>Huse Protecție</figcaption>
+                </figure>
+                <figure id="fig4">
+                    <img src="resurse/imagini/briose-frisca.png" alt="doza pickup">
+                    <figcaption>Doză Pick-up</figcaption>
+                </figure>
+
+                <section id="galerie-statica">
+                    <h2>Galerie</h2>
+                    <div id="grid-galerie">
+                        <figure><div><img src="resurse/imagini/vinyl1.png" alt="vinyl"></div><figcaption>Vinyl Classic</figcaption></figure>
+                        <figure><img src="resurse/imagini/briose-frisca.png" alt="disc muzica rock"><figcaption>Album Rock</figcaption></figure>
+                        <figure><img src="resurse/imagini/briose-frisca.png" alt="disc muzica jazz"><figcaption>Album Jazz</figcaption></figure>
+                        <figure><img src="resurse/imagini/briose-frisca.png" alt="disc muzica pop"><figcaption>Album Pop</figcaption></figure>
+                        <figure><img src="resurse/imagini/briose-frisca.png" alt="echipament audio"><figcaption>Pickup Setup</figcaption></figure>
+                        <figure><img src="resurse/imagini/briose-frisca.png" alt="boxe audio"><figcaption>Boxe Audio</figcaption></figure>
+                        <figure><img src="resurse/imagini/briose-frisca.png" alt="magazin vinyl"><figcaption>Magazin Vinyllium</figcaption></figure>
                     </div>
+                </section>
 
-                    <figcaption>Vinyl</figcaption>
-                </figure>
-                <figure>
-                    <img src="resurse/imagini/briose-frisca.png" alt="briose">
-                    <figcaption>Briose</figcaption>
-                </figure>
-                <figure>
-                    <img src="resurse/imagini/briose-frisca.png" alt="briose">
-                    <figcaption>Briose</figcaption>
-                </figure>
-                <figure>
-                    <img src="resurse/imagini/briose-frisca.png" alt="briose">
-                    <figcaption>Briose</figcaption>
-                </figure>
-                <figure>
-                    <img src="resurse/imagini/briose-frisca.png" alt="briose">
-                    <figcaption>Briose</figcaption>
-                </figure>
-                <figure>
-                    <img src="resurse/imagini/briose-frisca.png" alt="briose">
-                    <figcaption>Briose</figcaption>
-                </figure>
-                <figure>
-                    <img src="resurse/imagini/briose-frisca.png" alt="briose">
-                    <figcaption>Briose</figcaption>
-                </figure>
+                <section id="video">
+                    <h2>Configurare echipamente</h2>
+                    <p>Dacă doriți să vă configurați singuri echipamentele audio de la casele dumneavoastră vă recomandăm videoclipurile de mai jos.</p>
+                    <div class="container-iframe">
+                        <div class="taburi-iframe">
+                            <a href="https://www.youtube.com/embed/-r8JYLxAp3k" target="sursa-video">Prezentare pick-up AT-LP70X</a>
+                            <a href="https://www.youtube.com/embed/DYLHDfILAcA" target="sursa-video">Prezentare boxe AT-SP3X</a>
+                            <a href="https://www.youtube.com/embed/13XITK8PyQU" target="sursa-video">Prezentare configurare setup audio</a><br />
+                        </div>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/-r8JYLxAp3k" name="sursa-video" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </section>
 
-            </div>
-        </section>
-        <section id="video">
-            <h2>Configurare echipamente</h2>
-            <p>
-                Dacă doriți să vă configurați singuri echipamentele audio de la casele dumneavoastră vă recomandăm
-                videoclipurile de mai jos. Dacă întâmpinați orice fel de problemă nu ezitați să ne contactați!</p>
-            <div class="container-iframe">
-                <div class="taburi-iframe">
-                    <a href="https://www.youtube.com/embed/-r8JYLxAp3k" target="sursa-video">Prezentare pick-up
-                        AT-LP70X</a>
-                    <a href="https://www.youtube.com/embed/DYLHDfILAcA" target="sursa-video">Prezentare boxe AT-SP3X</a>
-                    <a href="https://www.youtube.com/embed/13XITK8PyQU" target="sursa-video">Prezentare configurare
-                        setup audio</a><br />
-                </div>
-
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/-r8JYLxAp3k" name="sursa-video"
-                    title="YouTube video player" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-        </section>
-        <aside id="despre">
-            <h3>Despre pasiunea noastră</h3>
-            <p>Știm că ești aici pentru că muzica înseamnă mai mult decât un simplu playlist pe fundal.</p>
-
-            <blockquote>
-                <p>Am creat acest spațiu din pasiunea pentru acea conexiune reală cu artistul, pe care doar un vinyl o
-                    poate oferi.</p>
-            </blockquote>
-
-            <p>Fie că ești un colecționar cu experiență sau un entuziast, poți să <a href="resurse/catalog.pdf"
-                    download="catalog_vinyl_2026.pdf">descarci lista noastră de albume rare</a>.</p>
-
-            <p>Vrei să afli cum se fabrică? Citește despre <a href="https://ro.wikipedia.org/wiki/Disc_de_vinil"
-                    target="_blank">istoria discului!</a>
-                Sau aprofundează subiectul turațiilor aici:<br>
-                <a href="https://en.wikipedia.org/wiki/Phonograph_record#78_rpm_materials"
-                    target="_blank">https://en.wikipedia.org/<wbr>wiki/Phonograph_record#78_rpm_materials</a>
-            </p>
-        </aside>
+                <aside id="despre">
+                    <h3>Despre pasiunea noastră</h3>
+                    <p>Știm că ești aici pentru că muzica înseamnă mai mult decât un simplu playlist pe fundal.</p>
+                    <blockquote>
+                        <p>Am creat acest spațiu din pasiunea pentru acea conexiune reală cu artistul, pe care doar un vinyl o poate oferi.</p>
+                    </blockquote>
+                    <p>Fie că ești un colecționar cu experiență sau un entuziast, poți să <a href="resurse/catalog.pdf" download="catalog_vinyl_2026.pdf">descarci lista noastră de albume rare</a>.</p>
+                    <p>Vrei să afli cum se fabrică? Citește despre <a href="https://ro.wikipedia.org/wiki/Disc_de_vinil" target="_blank">istoria discului!</a></p>
+                </aside>
+                
+            </div> 
+        </div> 
     </main>
+
     <footer>
         <address>
             Ne găsești oricând la:<br>
             Telefon: <a href="tel:+40700123456">0700 123 456</a><br>
             Locație magazin:<br>
-            <a href="https://www.google.com/maps/place/Facultatea+de+Matematic%C4%83+%C8%99i+Informatic%C4%83,+Bucure%C8%99ti"
-                target="_blank">
-                Magazin
+            <a href="https://www.google.com/maps/place/Facultatea+de+Matematic%C4%83+%C8%99i+Informatic%C4%83,+Bucure%C8%99ti" target="_blank">
+                Strada Podului, <br>
+                nr. 67
             </a><br>
-            E-mail: <a href="mailto:contact@vinyllium.ro">contact@vinyllium.ro</a><i
-                class="fa-solid fa-envelope"></i><br>
+            E-mail: <a href="mailto:contact@vinyllium.ro">contact@vinyllium.ro</a><i class="fa-solid fa-envelope"></i><br>
             <a href="https://wa.me/40700123456" target="_blank">Scrie-ne pe WhatsApp</a>
         </address>
-
-        <a href="#" title="mergi sus" id="link-top">link sus</a>
-
-        <p><small>Copyright &copy; <time datetime="2026-03-02">2 martie 2026</time> Bălan Mihai</small></p>
+        <a href="#" id="link-top">
+    <div class="triunghi"></div>
+</a>
+        <p><small>Copyright © <time datetime="2026-03-02">2 martie 2026</time> Bălan Mihai</small></p>
     </footer>
 </body>
-
 </html>
