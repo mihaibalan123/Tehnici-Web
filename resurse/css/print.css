@@ -1,0 +1,176 @@
+@media print {
+
+    img,
+    video,
+    audio,
+    iframe,
+    figure,
+    figcaption,
+    picture,
+    #container-video,
+    #dv-prezentare-1,
+    #clip-video,
+    #centrare-video,
+    #stil-video,
+    .farfurie,
+    #galerie-statica,
+    #formula-sunet,
+    #link-top,
+    .hamburger-btn,
+    #hamburger-toggle,
+    .taburi-iframe,
+    footer .fa-envelope,
+    footer i {
+        display : none !important;
+    }
+
+    #grid-pagina {
+        display : block !important;
+    }
+
+    a,
+    a:visited,
+    a:link {
+        color           : black !important;
+        text-decoration : none !important;
+    }
+
+    * {
+        background : white !important;
+        color      : black !important;
+        box-shadow : none !important;
+    }
+
+    body {
+        margin  : 0;
+        padding : 0;
+        font-size: 11pt;
+    }
+
+    main {
+        margin : 0 !important;
+        padding: 0 !important;
+    }
+
+    header {
+        text-align : center;
+        page-break-after: avoid;
+    }
+
+    header h1 {
+        display    : block;
+        text-align : center;
+        font-size  : 20pt;
+        margin     : 0 auto 12pt;
+        color      : black !important;
+    }
+
+    header > a,
+    header > img,
+    header label {
+        display : none !important;
+    }
+
+    header nav {
+        display          : block;
+        background       : none !important;
+        text-align       : center;
+        page-break-after : always;
+    }
+
+    header nav ul.meniu {
+        display     : block !important;
+        text-align  : center;
+        padding     : 0;
+        margin      : 0 auto;
+        list-style  : none;
+    }
+
+    header nav ul.meniu > li {
+        display      : block !important;
+        width        : auto !important;
+        height       : auto !important;
+        border       : none !important;
+        background   : none !important;
+        line-height  : 2 !important;
+        text-align   : center;
+        font-weight  : bold;
+        font-size    : 13pt;
+        color        : black !important;
+    }
+
+    header nav ul.meniu > li::before {
+        display : none !important;
+    }
+
+    header nav ul.meniu > li > a {
+        display         : block;
+        color           : black !important;
+        text-decoration : none !important;
+        justify-content : center;
+    }
+
+    header nav ul.meniu > li > ul.submeniu {
+        display : none !important;
+    }
+
+    footer {
+        page-break-before : always;
+        text-align        : left;
+        padding-top       : 10pt;
+    }
+
+    footer::before {
+        content      : "Acesta este un proiect școlar!";
+        display      : block;
+        position     : fixed;
+        bottom       : 2cm;
+        left         : 15%;
+        width        : 70%;
+        text-align   : center;
+        border       : 4px inset #000;
+        padding      : 8pt 12pt;
+        font-size    : 11pt;
+        font-weight  : bold;
+        background   : white;
+        color        : black;
+        box-shadow   : none;
+        z-index      : 1000;
+    }
+
+    body::after {
+        content        : "Bălan\A Mihai";
+        white-space    : pre;
+        display        : block;
+        position       : fixed;
+        bottom         : 0;
+        right          : 0;
+        width          : 4cm;
+        height         : 1cm;
+        text-align     : center;
+        line-height    : 1.3;
+        font-size      : 7pt;
+        font-weight    : bold;
+        border         : 3px solid rgba(0, 0, 0, 0.4);
+        border-radius  : 3px;
+        color          : rgba(0, 0, 0, 0.4);
+        background     : rgba(255, 255, 255, 0.6);
+        box-shadow     : none;
+        padding        : 1pt 3pt;
+        z-index        : 999;
+    }
+
+    @page :left {
+        margin-left  : 3cm;
+        margin-right : 1cm;
+    }
+
+    @page :right {
+        margin-left  : 1cm;
+        margin-right : 3cm;
+    }
+
+    @page {
+        margin-bottom : 2cm;
+    }
+}
