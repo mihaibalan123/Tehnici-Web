@@ -2,24 +2,23 @@
 <html lang="ro">
 
 <head>
-    <meta charset="utf-8">
+    <%- include('../fragmente/head.ejs') %>
     <title> Vinyllium </title>
-    <meta name="author" content="Bălan Mihai">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content=" Vinyllium : vinyl-uri din orice gen muzical (rock, pop, electonic, etc.) - achiziții online și livrare la domiciliu.">
+        content=" Vinyllium : vinyl-uri din orice gen muzical (rock, pop, electronic, etc.) - achiziții online și livrare la domiciliu.">
     <meta name="keywords" content="Vinyllium: muzica, vinyl, disc, albume, LP, rock, pop, București">
+    
     <link rel="icon" type="image/png" href="/resurse/imagini/favicon/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/resurse/imagini/favicon/favicon.svg" />
     <link rel="shortcut icon" href="/resurse/imagini/favicon/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/resurse/imagini/favicon/apple-touch-icon.png" />
     <link rel="manifest" href="/resurse/imagini/favicon/site.webmanifest" />
     <meta name="msapplication-TileColor" content="#1a1a1a" />
-    <link rel="stylesheet" href="./resurse/css/general.css" type="text/css" />
-    <link rel="stylesheet" href="./resurse/css/nav.css" type="text/css" />
-    <link rel="stylesheet" href="./resurse/css/reset.css" type="text/css" />
-    <link rel="stylesheet" href="./resurse/css/nav.css" type="text/css" />
-    <link rel="stylesheet" href="./resurse/css/print.css" media="print" />
+    
+    <link rel="stylesheet" href="/resurse/css/reset.css" type="text/css" />
+    <link rel="stylesheet" href="/resurse/css/nav.css" type="text/css" />
+    <link rel="stylesheet" href="/resurse/css/print.css" media="print" />
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,157 +26,103 @@
 </head>
 
 <body>
-    <header>
-        <h1>Vinyllium - Magazin de Vinyl-uri</h1>
-        <a href="resurse/imagini/sigla.png" title="Vezi sigla mărită">
-            <img src="resurse/imagini/sigla.png" alt="Sigla magazinului Vinyllium" />
-        </a>
- 
-        <nav>
-            <ul class="meniu">
-                
-                <li>
-                    <a href="index.html">
-                        <i class="fas fa-home"></i> 
-                        <span class="text-opt">Acasă</span>
-                    </a>
-                </li>
-                
-                <li>
-                    <a href="index.html">
-                        <i class="fas fa-list-alt"></i> 
-                        <span class="text-opt">Secțiuni Acasă</span>
-                    </a>
-                    <ul class="submeniu">
-                        <li><a href="#welcome">Bine ați venit</a></li>
-                        <li><a href="#promotii">Promoții</a></li>
-                        <li><a href="#anunturi">Anunțuri</a></li>
-                        <li><a href="#orar">Orar Magazin</a></li>
-                        <li><a href="#index-intrebari">Întrebări</a></li>
-                    </ul>
-                </li>
-                
-                <li>
-                    <a href="#">
-                        <i class="fas fa-compact-disc"></i> 
-                        <span class="text-opt">Produse</span>
-                    </a>
-                    <ul class="submeniu">
-                        <li><a href="rock.html">Colecția Rock</a></li>
-                        <li><a href="jazz.html">Colecția Jazz</a></li>
-                        <li><a href="electronica.html">Electro</a></li>
-                        <li><a href="echipamente.html">Aparate Pick-up</a></li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href="contact.html">
-                        <i class="fas fa-envelope"></i> 
-                        <span class="text-opt">Contact</span>
-                    </a>
-                </li>
-
-            </ul>
-        </nav>
-    </header>
-    
-
+    <%- include('../fragmente/header.ejs') %>
     <main>
         <div id="grid-pagina">
             
-           <section id="welcome">
-    <hgroup>
-        <h2>Bine ați venit în universul Vinyllium!</h2>
-        <p class="subtitlu">Destinația perfectă pentru iubitorii de sunet analogic</p>
-    </hgroup>
-    
-    <p class="intro">Vă mulțumim că ne vizitați site-ul dedicat pasionaților de <b>muzică</b>. Aici, fiecare disc ascunde o poveste, iar sunetul cald al vinilului te transpune direct în inima studioului de înregistrări. Fie că ești la început de drum în lumea muzicii analogice sau un colecționar avid în căutarea acelei ediții rare, magazinul nostru îți oferă o selecție atent curată. Explorați rafturile noastre virtuale și lăsați-vă inspirați de magia muzicii pe format fizic.</p>
-    
-    <div class="intro-oferte">
-        <div>Rock</div>
-        <div>Pop</div>
-        <div>Jazz</div>
-        <div>Electronică</div>
-        <div>Clasică</div>
-        <div>Blues</div>
-        <div>Folk</div>
-    </div>
-    
-    <p class="anunt intro">Puteți alege să ascultați <strong>vinyl-ul</strong> preferat în incinta magazinului nostru. Sistemele noastre audio de înaltă fidelitate sunt pregătite zilnic pentru a vă oferi o experiență de neuitat. Dacă sunteți mulțumit de calitatea sunetului, îl puteți achiziționa direct de la locație sau plasa o comandă online.</p>
-    
-    <div id="dv-prezentare-1">
-        <figure id="dv-prezentare">
-            <picture>
-                <source srcset="./resurse/imagini/pickup-mic.jpg" media="(max-width:700px)" />
-                <source srcset="./resurse/imagini/pickup-mediu.jpg" media="(max-width:1200px)" />
-                <img src="./resurse/imagini/pickup-mare.jpg" alt="Pickup clasic" title="Pickup vintage rulând un disc" />
-            </picture>
-            <figcaption>Echipamentul nostru de audiție din magazin.</figcaption>
-        </figure>
-    </div>
-    
-    <hr class="separator" />
-    
-    <div id="container-video">
-        <img style="width:50%" class="farfurie" src="resurse/imagini/farfurie-flori-albastre.png" alt="decor muzical" title="Decor muzical">
-        <div id="centrare-video">
-            <div id="clip-video">
-                <div id="stil-video">
-                    <video width="320" height="240" playsinline autoplay loop muted>
-                        <source src="resurse/video/Chocolate.mp4" type="video/mp4">
-                        <source src="resurse/video/Chocolate.ogv" type="video/ogv">
-                        <track default src="data:image/png;base64,V0VC..." kind="captions" srclang="ro" label="romana">
-                    </video>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<section id="formula-sunet">
-    <h3>Formula Sunetului (Transformata Fourier)</h3>
-    <math xmlns="http://www.w3.org/1998/Math/MathML" display="block" class="formula-audio">
-        <mrow>
-            <mover>
-                <mi>X</mi>
-                <mo>^</mo>
-            </mover>
-            <mo stretchy="false">(</mo>
-            <mi>f</mi>
-            <mo stretchy="false">)</mo>
-            <mo>=</mo>
-            <msubsup>
-                <mo>&#x222B;</mo>
-                <mrow>
-                    <mo>&#x2212;</mo>
-                    <mi>&#x221E;</mi>
-                </mrow>
-                <mi>&#x221E;</mi>
-            </msubsup>
-            <mi>x</mi>
-            <mo stretchy="false">(</mo>
-            <mi>t</mi>
-            <mo stretchy="false">)</mo>
-            <mo>&#x22C5;</mo>
-            <msup>
-                <mi>e</mi>
-                <mrow>
-                    <mo>&#x2212;</mo>
-                    <mi>i</mi>
-                    <mn>2</mn>
-                    <mi>&#x03C0;</mi>
-                    <mi>f</mi>
-                    <mi>t</mi>
-                </mrow>
-            </msup>
-            <mi>d</mi>
-            <mi>t</mi>
-        </mrow>
-    </math>
-</section>
-
-<section id="orar">
-                <h2>Orar</h2>
+            <section id="welcome">
+                <hgroup>
+                    <h2>Bine ați venit în universul Vinyllium!</h2>
+                    <p class="subtitlu">Destinația perfectă pentru iubitorii de sunet analogic</p>
+                </hgroup>
                 
+                <p class="intro">Vă mulțumim că ne vizitați site-ul dedicat pasionaților de <b>muzică</b>. Aici, fiecare disc ascunde o poveste, iar sunetul cald al vinilului te transpune direct în inima studioului de înregistrări. Fie că ești la început de drum în lumea muzicii analogice sau un colecționar avid în căutarea acelei ediții rare, magazinul nostru îți oferă o selecție atent curată. Explorați rafturile noastre virtuale și lăsați-vă inspirați de magia muzicii pe format fizic.</p>
+                
+                <div class="intro-oferte">
+                    <div>Rock</div>
+                    <div>Pop</div>
+                    <div>Jazz</div>
+                    <div>Electronică</div>
+                    <div>Clasică</div>
+                    <div>Blues</div>
+                    <div>Folk</div>
+                </div>
+                
+                <p class="anunt intro">Puteți alege să ascultați <strong>vinyl-ul</strong> preferat în incinta magazinului nostru. Sistemele noastre audio de înaltă fidelitate sunt pregătite zilnic pentru a vă oferi o experiență de neuitat. Dacă sunteți mulțumit de calitatea sunetului, îl puteți achiziționa direct de la locație sau plasa o comandă online.</p>
+                
+                <div id="dv-prezentare-1">
+                    <figure id="dv-prezentare">
+                        <picture>
+                            <source srcset="/resurse/imagini/pickup-mic.jpg" media="(max-width:700px)" />
+                            <source srcset="/resurse/imagini/pickup-mediu.jpg" media="(max-width:1200px)" />
+                            <img src="/resurse/imagini/pickup-mare.jpg" alt="Pickup clasic" title="Pickup vintage rulând un disc" />
+                        </picture>
+                        <figcaption>Echipamentul nostru de audiție din magazin.</figcaption>
+                    </figure>
+                </div>
+                
+                <hr class="separator" />
+                
+                <div id="container-video">
+                    <img style="width:50%" class="farfurie" src="/resurse/imagini/farfurie-flori-albastre.png" alt="decor muzical" title="Decor muzical">
+                    <div id="centrare-video">
+                        <div id="clip-video">
+                            <div id="stil-video">
+                                <video width="320" height="240" playsinline autoplay loop muted>
+                                    <source src="/resurse/video/Chocolate.mp4" type="video/mp4">
+                                    <source src="/resurse/video/Chocolate.ogv" type="video/ogv">
+                                    <track default src="data:image/png;base64,V0VC..." kind="captions" srclang="ro" label="romana">
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="formula-sunet">
+                <h3>Formula Sunetului (Transformata Fourier)</h3>
+                <math xmlns="http://www.w3.org/1998/Math/MathML" display="block" class="formula-audio">
+                    <mrow>
+                        <mover>
+                            <mi>X</mi>
+                            <mo>^</mo>
+                        </mover>
+                        <mo stretchy="false">(</mo>
+                        <mi>f</mi>
+                        <mo stretchy="false">)</mo>
+                        <mo>=</mo>
+                        <msubsup>
+                            <mo>&#x222B;</mo>
+                            <mrow>
+                                <mo>&#x2212;</mo>
+                                <mi>&#x221E;</mi>
+                            </mrow>
+                            <mi>&#x221E;</mi>
+                        </msubsup>
+                        <mi>x</mi>
+                        <mo stretchy="false">(</mo>
+                        <mi>t</mi>
+                        <mo stretchy="false">)</mo>
+                        <mo>&#x22C5;</mo>
+                        <msup>
+                            <mi>e</mi>
+                            <mrow>
+                                <mo>&#x2212;</mo>
+                                <mi>i</mi>
+                                <mn>2</mn>
+                                <mi>&#x03C0;</mi>
+                                <mi>f</mi>
+                                <mi>t</mi>
+                            </mrow>
+                        </msup>
+                        <mi>d</mi>
+                        <mi>t</mi>
+                    </mrow>
+                </math>
+            </section>
+
+            <section id="orar">
+                <h2>Orar</h2>
                 <div class="container-tabel">
                     <table id="tab-orar">
                         <caption>Programul de funcționare a magazinului fizic Vinyllium</caption>
@@ -291,10 +236,11 @@
                 <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
             </section>
 
-            <section id="statistici" class="placeholder">
-                <h2>Statistici Utilizator</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </section>
+            <section id="statistici">
+    <h2>Statistici Utilizator</h2>
+    <p>Conexiunea dumneavoastră este securizată.</p>
+    <p><strong>IP-ul dumneavoastră curent:</strong> <code><%= ip %></code></p>
+</section>
 
             <section id="server" class="placeholder">
                 <h2>Date Server</h2>
@@ -338,7 +284,7 @@
                 <section id="produse">
                     <h2>Produsele noastre</h2>
                     <p>Status stoc ediții limitate (Alternosfera):
-                        <meter min="0" max="50" low="10" high="40" optimum="45" value="5">5 bucăți</meter> (Stoc critic)
+                        <meter min="0" max="50" low="10" high="40" optimum="45" value="5">5 bucăći</meter> (Stoc critic)
                     </p>
                     <p>Satisfacția clienților audiofili:
                         <meter min="0" max="100" low="40" high="80" optimum="95" value="95">95%</meter> (Excelent)
@@ -396,32 +342,32 @@
                 </section>
 
                 <figure id="fig1" class="fg-img">
-                    <img src="resurse/imagini/briose-frisca.png" alt="disc vinyl editie limitata">
+                    <img src="/resurse/imagini/briose-frisca.png" alt="disc vinyl editie limitata">
                     <figcaption>Vinyl Ediție Limitată</figcaption>
                 </figure>
                 <figure id="fig2" class="fg-img">
-                    <img src="resurse/imagini/briose-frisca.png" alt="accesorii intretinere">
+                    <img src="/resurse/imagini/briose-frisca.png" alt="accesorii intretinere">
                     <figcaption>Kit Întreținere Vinyl</figcaption>
                 </figure>
                 <figure id="fig3" class="fg-img">
-                    <img src="resurse/imagini/briose-frisca.png" alt="huse protectie">
+                    <img src="/resurse/imagini/briose-frisca.png" alt="huse protectie">
                     <figcaption>Huse Protecție</figcaption>
                 </figure>
                 <figure id="fig4">
-                    <img src="resurse/imagini/briose-frisca.png" alt="doza pickup">
+                    <img src="/resurse/imagini/briose-frisca.png" alt="doza pickup">
                     <figcaption>Doză Pick-up</figcaption>
                 </figure>
 
                 <section id="galerie-statica">
                     <h2>Galerie</h2>
                     <div id="grid-galerie">
-                        <figure><div><img src="resurse/imagini/vinyl1.png" alt="vinyl"></div><figcaption>Vinyl Classic</figcaption></figure>
-                        <figure><img src="resurse/imagini/briose-frisca.png" alt="disc muzica rock"><figcaption>Album Rock</figcaption></figure>
-                        <figure><img src="resurse/imagini/briose-frisca.png" alt="disc muzica jazz"><figcaption>Album Jazz</figcaption></figure>
-                        <figure><img src="resurse/imagini/briose-frisca.png" alt="disc muzica pop"><figcaption>Album Pop</figcaption></figure>
-                        <figure><img src="resurse/imagini/briose-frisca.png" alt="echipament audio"><figcaption>Pickup Setup</figcaption></figure>
-                        <figure><img src="resurse/imagini/briose-frisca.png" alt="boxe audio"><figcaption>Boxe Audio</figcaption></figure>
-                        <figure><img src="resurse/imagini/briose-frisca.png" alt="magazin vinyl"><figcaption>Magazin Vinyllium</figcaption></figure>
+                        <figure><div><img src="/resurse/imagini/vinyl1.png" alt="vinyl"></div><figcaption>Vinyl Classic</figcaption></figure>
+                        <figure><img src="/resurse/imagini/briose-frisca.png" alt="disc muzica rock"><figcaption>Album Rock</figcaption></figure>
+                        <figure><img src="/resurse/imagini/briose-frisca.png" alt="disc muzica jazz"><figcaption>Album Jazz</figcaption></figure>
+                        <figure><img src="/resurse/imagini/briose-frisca.png" alt="disc muzica pop"><figcaption>Album Pop</figcaption></figure>
+                        <figure><img src="/resurse/imagini/briose-frisca.png" alt="echipament audio"><figcaption>Pickup Setup</figcaption></figure>
+                        <figure><img src="/resurse/imagini/briose-frisca.png" alt="boxe audio"><figcaption>Boxe Audio</figcaption></figure>
+                        <figure><img src="/resurse/imagini/briose-frisca.png" alt="magazin vinyl"><figcaption>Magazin Vinyllium</figcaption></figure>
                     </div>
                 </section>
 
@@ -442,40 +388,23 @@
                     <h3>Despre pasiunea noastră</h3>
                     <p>Știm că ești aici pentru că muzica înseamnă mai mult decât un simplu playlist pe fundal.</p>
                     <blockquote>
-                        <p>Am creat acest spațiu din pasiunea pentru acea conexiune reală cu artistul, pe care doar un vinyl o poate oferi.</p>
+                        <p>Am creat acest spațiu din pasiunea pentru acea conexiune reală cu artistul, pe care doar un vinyl o poate offeri.</p>
                     </blockquote>
-                    <p>Fie că ești un colecționar cu experiență sau un entuziast, poți să <a href="resurse/catalog.pdf" download="catalog_vinyl_2026.pdf">descarci lista noastră de albume rare</a>.</p>
+                    <p>Fie că ești un colecționar cu experiență sau un entuziast, poți să <a href="/resurse/catalog.pdf" download="catalog_vinyl_2026.pdf">descarci lista noastră de albume rare</a>.</p>
                     <p>Vrei să afli cum se fabrică? Citește despre <a href="https://ro.wikipedia.org/wiki/Disc_de_vinil" target="_blank">istoria discului!</a></p>
                     <p>
-    Pentru un ghid tehnic complet despre calibrarea greutății brațului de pick-up (referință externă), consultați: <br>
-    <a href="http://www.audio-technica.com/support/turntables#calibrare">
-        http://www.audio<wbr>-technica.com/<wbr>support/<wbr>turntables<wbr>#calibrare
-    </a>
-</p>
+                        Pentru un ghid tehnic complet despre calibrarea greutății brațului de pick-up (referință externă), consultați: <br>
+                        <a href="http://www.audio-technica.com/support/turntables#calibrare">
+                            http://www.audio<wbr>-technica.com/<wbr>support/<wbr>turntables<wbr>#calibrare
+                        </a>
+                    </p>
                 </aside>
                 
             </div> 
         </div> 
     </main>
-
-    <footer>
-        <p class="banner-print">Acesta este un proiect școlar!</p>
-        <address>
-            Ne găsești oricând la:<br>
-            Telefon: <a href="tel:+40700123456">0700 123 456</a><br>
-            Locație magazin:<br>
-            <a href="https://www.google.com/maps/place/Facultatea+de+Matematic%C4%83+%C8%99i+Informatic%C4%83,+Bucure%C8%99ti" target="_blank">
-                Strada Podului, <br>
-                nr. 67
-            </a><br>
-            E-mail: <a href="mailto:contact@vinyllium.ro">contact@vinyllium.ro</a><i class="fa-solid fa-envelope"></i><br>
-            <a href="https://wa.me/40700123456" target="_blank">Scrie-ne pe WhatsApp</a>
-        </address>
-        <a href="#" id="link-top">
-    <div class="triunghi"></div>
-</a>
-        <p><small>Copyright © <time datetime="2026-03-02">2 martie 2026</time> Bălan Mihai</small></p>
-    </footer>
+    <%- include('../fragmente/footer.ejs') %>
+    
+    <div id="watermark">Bălan<br>Mihai</div>
 </body>
-<div id="watermark">Bălan<br>Mihai</div>
 </html>
