@@ -121,7 +121,7 @@
     }
 
     footer::before {
-        content      : "Acesta este un proiect școlar!";
+        content      : "Acesta este un proiect scolar!";
         display      : block;
         position     : fixed;
         bottom       : 2cm;

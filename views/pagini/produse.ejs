@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <%- include('../fragmente/head.ejs') %>
+    <title> Produse - Vinyllium </title>
+    <link rel="stylesheet" href="/resurse/css/nav.css" type="text/css" />
+    <style>
+
+        .produse-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .produs-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            border: 2px solid var(--culoare-contur);
+            padding: 20px;
+            border-radius: 12px;
+            background-color: var(--culoare-fundal);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            position: relative;
+        }
+        
+        .produs-card > h3 {
+            grid-column: 1 / -1;
+            color: var(--culoare-principala);
+            border-bottom: 1px solid var(--culoare-contur);
+            padding-bottom: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .produs-card {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .col-1 img {
+            width: 100%;
+            max-width: 250px;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid var(--culoare-contur);
+            margin-bottom: 15px;
+        }
+        .proprietati {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .proprietati li {
+            margin-bottom: 8px;
+        }
+        .proprietati .nume-caracteristica {
+            font-weight: bold;
+            background-color: var(--culoare-principala);
+            color: white;
+            padding: 2px 5px;
+            border-radius: 4px;
+            margin-right: 5px;
+        }
+        
+        .col-2 .categorie {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--culoare-highlight);
+            margin-bottom: 15px;
+        }
+        
+        .eroare-input {
+            border: 2px solid red !important;
+            background-color: #ffe6e6 !important;
+        }
+    </style>
+</head>
+<body>
+    <%- include('../fragmente/header.ejs') %>
+    <main style="padding-top: 50px;">
+        <h1 style="text-align: center; margin-bottom: 20px; color: var(--culoare-principala);">Sortare și Filtrare produse</h1>
+        
+        <div class="container my-4 p-4 border rounded" style="background-color: var(--culoare-fundal); border-color: var(--culoare-contur) !important;">
+            <h3 class="mb-4" style="color: var(--culoare-principala);">Filtre</h3>
+            <div class="row g-3 align-items-center">
+                
+                <!-- 1. Textarea cu floating label -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="form-floating">
+                        <textarea class="form-control" id="inp-nume" placeholder="Nume" style="height: 60px"></textarea>
+                        <label for="inp-nume">Nume Produs (începe cu)</label>
+                    </div>
+                </div>
+                
+                <!-- 2. Text -->
+                <div class="col-md-6 col-lg-4">
+                    <label for="inp-descriere" class="form-label">Cuvânt cheie descriere:</label>
+                    <input type="text" class="form-control" id="inp-descriere" placeholder="Ex: capodopera" />
+                </div>
+                
+                <!-- 3. Range Customizat -->
+                <div class="col-md-6 col-lg-4">
+                    <label for="inp-greutate" class="form-label">Greutate (minim): <span id="val-greutate">140</span>g</label>
+                    <div class="d-flex align-items-center gap-2">
+                        <span>140</span>
+                        <input type="range" class="form-range flex-grow-1" id="inp-greutate" min="140" max="200" step="10" value="140" oninput="document.getElementById('val-greutate').textContent = this.value">
+                        <span>200</span>
+                    </div>
+                </div>
+
+                <!-- 4. Datalist -->
+                <div class="col-md-6 col-lg-3">
+                    <label for="inp-format" class="form-label">Format Disc (LP, EP, Single):</label>
+                    <input class="form-control" list="lista-formate" id="inp-format" placeholder="Alegeți format...">
+                    <datalist id="lista-formate">
+                        <option value="LP">
+                        <option value="EP">
+                        <option value="Single">
+                    </datalist>
+                </div>
+                
+                <!-- 5. Radio Buttons ca Toggle Buttons Bootstrap -->
+                <div class="col-md-6 col-lg-5">
+                    <label class="form-label d-block">Culoare Disc:</label>
+                    <div class="btn-group w-100" role="group">
+                        <input type="radio" class="btn-check" name="gr_radio" id="rad-toate" value="toate" checked>
+                        <label class="btn btn-outline-primary" for="rad-toate">Orice</label>
+                        
+                        <input type="radio" class="btn-check" name="gr_radio" id="rad-negru" value="Negru">
+                        <label class="btn btn-outline-primary" for="rad-negru">Negru</label>
+                        
+                        <input type="radio" class="btn-check" name="gr_radio" id="rad-rosu" value="Roșu">
+                        <label class="btn btn-outline-primary" for="rad-rosu">Roșu</label>
+                    </div>
+                </div>
+
+                <!-- 6. Checkbox ca Toggle Button Bootstrap -->
+                <div class="col-md-6 col-lg-4">
+                    <label class="form-label d-block">Noutăți:</label>
+                    <input type="checkbox" class="btn-check" id="chk-noutati">
+                    <label class="btn btn-outline-primary w-100" for="chk-noutati">Doar noutăți (post 01-01-2024)</label>
+                </div>
+                
+                <!-- 7. Select Simplu -->
+                <div class="col-md-6 col-lg-4">
+                    <label for="sel-editie" class="form-label">Ediție limitată:</label>
+                    <select class="form-select" id="sel-editie">
+                        <option value="oricare" selected>Oricare</option>
+                        <option value="da">Da</option>
+                        <option value="nu">Nu</option>
+                    </select>
+                </div>
+                
+                <!-- 8. Select Multiplu -->
+                <div class="col-md-6 col-lg-4">
+                    <label for="sel-instrumente" class="form-label">Instrumente (multiple):</label>
+                    <select class="form-select" id="sel-instrumente" multiple size="3">
+                        <option value="Chitară">Chitară</option>
+                        <option value="Tobe">Tobe</option>
+                        <option value="Sintetizator">Sintetizator</option>
+                        <option value="Voce">Voce</option>
+                    </select>
+                </div>
+            </div>
+            
+            <!-- Butoane cu Iconițe Bootstrap și ascundere text pe ecrane mici -->
+            <div class="row mt-4">
+                <div class="col d-flex flex-wrap gap-2 justify-content-center">
+                    <button id="btn-filtrare" class="btn btn-primary"><i class="bi bi-funnel"></i> <span class="d-none d-md-inline">Filtrează</span></button>
+                    <button id="btn-sort-asc" class="btn btn-secondary"><i class="bi bi-sort-alpha-down"></i> <span class="d-none d-md-inline">Sortare Asc</span></button>
+                    <button id="btn-sort-desc" class="btn btn-secondary"><i class="bi bi-sort-alpha-up"></i> <span class="d-none d-md-inline">Sortare Desc</span></button>
+                    <button id="btn-calcul" class="btn btn-success"><i class="bi bi-calculator"></i> <span class="d-none d-md-inline">Calculare</span></button>
+                    <button id="btn-reset" class="btn btn-danger"><i class="bi bi-arrow-counterclockwise"></i> <span class="d-none d-md-inline">Resetare</span></button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- SECȚIUNE PRODUSE -->
+        <% 
+           const luniRO = ['Ianuarie', 'Februarie', 'Martie', 'Aprilie', 'Mai', 'Iunie', 'Iulie', 'August', 'Septembrie', 'Octombrie', 'Noiembrie', 'Decembrie'];
+           const zileRO = ['Duminica', 'Luni', 'Marti', 'Miercuri', 'Joi', 'Vineri', 'Sambata'];
+           function formatDataRO(data) {
+               let d = new Date(data);
+               return `${zileRO[d.getDay()]} ${d.getDate()} ${luniRO[d.getMonth()]} ${d.getFullYear()}`;
+           }
+        %>
+        
+        <div id="container-produse" class="produse-grid">
+            <% if (produse && produse.length > 0) { %>
+                <% for(let i = 0; i < produse.length; i++) { %>
+                    <article id="artc-<%= produse[i].id %>" class="produs-card produs <%= produse[i].categorie_mare %>">
+                        <h3><%= produse[i].nume %></h3>
+                        
+                        <div class="col-1">
+                            <img src="/resurse/imagini/produse/<%= produse[i].imagine %>" alt="<%= produse[i].nume %>" onerror="this.onerror=null; this.src='/resurse/imagini/sigla.png';">
+                            <ul class="proprietati">
+                                <li><span class="nume-caracteristica">Preț:</span> <span class="val-pret"><%= produse[i].pret %></span> RON</li>
+                                <li><span class="nume-caracteristica">Greutate:</span> <span class="val-greutate"><%= produse[i].greutate_grame %></span> grame</li>
+                                <li><span class="nume-caracteristica">Culoare:</span> <span class="val-culoare"><%= produse[i].culoare_disc %></span></li>
+                                <li><span class="nume-caracteristica">Instrumente:</span> <span class="val-instrumente"><%= produse[i].instrumente_principale %></span></li>
+                                <li><span class="nume-caracteristica">Data Adăugare:</span> <time datetime="<%= produse[i].data_adaugare %>" class="val-data"><%= formatDataRO(produse[i].data_adaugare) %></time></li>
+                                <li><span class="nume-caracteristica">Ediție Limitată:</span> <span class="val-editie"><%= produse[i].editie_limitata ? 'Da' : 'Nu' %></span></li>
+                                <li style="display: none;"><span class="val-format"><%= produse[i].categorie_mica %></span></li>
+                                <li style="display: none;"><span class="val-nume"><%= produse[i].nume.toLowerCase() %></span></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="col-2">
+                            <p class="categorie">Categoria: <%= produse[i].categorie_mare %></p>
+                            <p class="descriere val-descriere"><%= produse[i].descriere %></p>
+                            <a href="/produs/<%= produse[i].id %>" class="btn btn-primary mt-3 w-100"><i class="bi bi-info-circle"></i> Află mai multe</a>
+                        </div>
+                    </article>
+                <% } %>
+            <% } else { %>
+                <p>Nu există produse momentan.</p>
+            <% } %>
+        </div>
+    </main>
+    
+    <script src="/resurse/js/produse.js"></script>
+    <%- include('../fragmente/footer.ejs') %>
+</body>
+</html>

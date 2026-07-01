@@ -1,0 +1,59 @@
+$font-family-base: 'Georgia', serif;
+
+$h1-font-size: 3rem;
+$h2-font-size: 2.5rem;
+$h3-font-size: 2rem;
+
+$primary: #d4af37; 
+$secondary: #8b4513; 
+
+$body-color: #2b2b2b;
+$link-color: #b8860b; 
+
+$custom-text-color: #5c3a21;
+
+$border-radius: 1.5rem;
+$border-radius-lg: 2rem;
+$border-radius-sm: 1rem;
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 800px, 
+  lg: 1100px, 
+  xl: 1400px,
+  xxl: 1600px
+);
+
+$enable-shadows: true;
+$btn-padding-y: 0.75rem;
+$btn-padding-x: 1.5rem;
+$btn-border-width: 3px;
+
+$form-range-thumb-width: 1.5rem;
+$form-range-thumb-height: 1.5rem;
+$form-range-thumb-bg: $primary;
+$form-range-track-bg: #ccc;
+
+@import "bootstrap/bootstrap";
+
+.text-custom {
+    color: $custom-text-color !important;
+}
+
+main {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#grid-pagina {
+    box-sizing: border-box;
+}
+
+section.placeholder {
+    color: inherit !important;
+    background-color: transparent !important;
+    opacity: 1 !important;
+    cursor: auto !important;
+    min-height: auto !important;
+}

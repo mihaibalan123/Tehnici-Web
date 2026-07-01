@@ -1,0 +1,20 @@
+<div id="galerie-statica">
+    <h2>Galerie Statică</h2>
+    <div class="galerie-container">
+        <% for(let img of imaginiGalerie) { %>
+            <figure>
+                <picture>
+                    <source media="(max-width: 575px)" srcset="<%- img.cale_mica_relativa %>">
+                    <source media="(max-width: 991px)" srcset="<%- img.cale_medie_relativa %>">
+                    <img src="<%- img.cale_relativa %>" alt="<%- img.continut_alternativ || img.nume_poza %>" title="<%- img.descriere_poza %>">
+                </picture>
+                <figcaption>
+                    <%- img.descriere_poza %>
+                    <% if(img.licenta && img.autor) { %>
+                        <br><small style="font-size: 0.7em;">Imagine de <a href="<%- img.link_autor %>" target="_blank"><%- img.autor %></a> (Licență <%- img.licenta %>)</small>
+                    <% } %>
+                </figcaption>
+            </figure>
+        <% } %>
+    </div>
+</div>

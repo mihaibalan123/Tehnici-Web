@@ -1,0 +1,90 @@
+#galerie-statica {
+    width: 100%;
+}
+
+.galerie-container {
+    width: 100%;
+    box-sizing: border-box;
+    counter-reset: imagini-galerie;
+}
+
+.galerie-container figure {
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.galerie-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: sepia(100%);
+    transition: filter 0.8s ease, box-shadow 0.8s ease;
+}
+
+.galerie-container figcaption {
+    transition: color 0.8s ease, text-shadow 0.8s ease;
+    text-align: center;
+    padding: 5px;
+    background-color: rgba(255, 255, 255, 0.8);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.galerie-container figcaption::before {
+    counter-increment: imagini-galerie;
+    content: counter(imagini-galerie, lower-roman) ". ";
+    font-weight: bold;
+}
+
+.galerie-container figure:hover img {
+    filter: sepia(0%);
+}
+
+.galerie-container figure:hover figcaption {
+    color: red;
+    text-shadow: 0px 0px 5px rgba(255, 0, 0, 0.8);
+}
+
+@media screen and (min-width: 992px) {
+    .galerie-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+    }
+    
+    .galerie-container figure:nth-child(8n+1) { grid-column: 1 / 2; }
+    .galerie-container figure:nth-child(8n+2) { grid-column: 2 / 3; }
+    .galerie-container figure:nth-child(8n+3) { grid-column: 1 / 2; }
+    .galerie-container figure:nth-child(8n+4) { grid-column: 3 / 4; }
+    .galerie-container figure:nth-child(8n+5) { grid-column: 2 / 3; }
+    .galerie-container figure:nth-child(8n+6) { grid-column: 3 / 4; }
+    .galerie-container figure:nth-child(8n+7) { grid-column: 1 / 2; }
+    .galerie-container figure:nth-child(8n+8) { grid-column: 3 / 4; }
+}
+
+@media screen and (min-width: 576px) and (max-width: 991px) {
+    .galerie-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    
+    .galerie-container figure {
+        grid-column: auto !important;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .galerie-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    
+    .galerie-container figure {
+        grid-column: auto !important;
+    }
+}

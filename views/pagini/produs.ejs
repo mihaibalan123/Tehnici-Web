@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <%- include('../fragmente/head.ejs') %>
+    <title> <%= produs.nume %> - Vinyllium </title>
+    <link rel="stylesheet" href="/resurse/css/nav.css" type="text/css" />
+</head>
+<body>
+    <%- include('../fragmente/header.ejs') %>
+    <main style="padding-top: 50px; padding-bottom: 50px;">
+        <article class="produs-detaliu" style="max-width: 900px; margin: 0 auto; border: 2px solid var(--culoare-contur); padding: 40px; border-radius: 12px; background-color: var(--culoare-fundal); box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+            <div style="display: flex; gap: 40px; flex-wrap: wrap;">
+                
+                <div style="flex: 1; min-width: 300px; text-align: center;">
+                    <img src="/resurse/imagini/produse/<%= produs.imagine %>" alt="<%= produs.nume %>" style="width: 100%; max-width: 400px; height: auto; border-radius: 8px; border: 2px solid var(--culoare-contur); box-shadow: inset 0 0 10px rgba(0,0,0,0.5);" onerror="this.onerror=null; this.src='/resurse/imagini/sigla.png';">
+                </div>
+                
+                <div style="flex: 1.5; min-width: 300px;">
+                    <h1 style="color: var(--culoare-principala); margin-bottom: 20px; font-size: 2.5rem; border-bottom: 2px solid var(--culoare-contur); padding-bottom: 10px;"><%= produs.nume %></h1>
+                    <p style="font-size: 1.1rem; margin-bottom: 20px;"><em><%= produs.descriere %></em></p>
+                    
+                    <p style="margin-bottom: 20px;">
+                        <span style="font-size: 1.8rem; font-weight: bold; color: var(--culoare-highlight);"><%= produs.pret %> RON</span>
+                    </p>
+                    
+                    <ul style="list-style-type: none; padding-left: 0; display: grid; gap: 10px; font-size: 1.1rem;">
+                        <li style="border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 5px;"><strong>Gen Muzical:</strong> <%= produs.categorie_mare %></li>
+                        <li style="border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 5px;"><strong>Format Disc:</strong> <%= produs.categorie_mica %></li>
+                        <li style="border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 5px;"><strong>Greutate Disc:</strong> <%= produs.greutate_grame %> grame</li>
+                        <li style="border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 5px;"><strong>Culoare Disc:</strong> <span style="display:inline-block; padding: 2px 8px; border:1px solid #000; background: <%= produs.culoare_disc === 'Negru' ? '#333' : (produs.culoare_disc === 'Roșu' ? '#d32f2f' : (produs.culoare_disc === 'Albastru' ? '#1976d2' : '#fff')) %>; color: <%= (produs.culoare_disc === 'Alb' || produs.culoare_disc === 'Transparent') ? '#000' : '#fff' %>; border-radius: 12px; font-size: 0.9rem;"><%= produs.culoare_disc %></span></li>
+                        <li style="border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 5px;"><strong>Instrumente Principale:</strong> <%= produs.instrumente_principale %></li>
+                        <li style="border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 5px;"><strong>Adăugat în catalog:</strong> <%= new Date(produs.data_adaugare).toLocaleDateString('ro-RO') %></li>
+                        <li style="border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 5px;"><strong>Ediție Limitată:</strong> <strong style="color: <%= produs.editie_limitata ? 'red' : 'green' %>;"><%= produs.editie_limitata ? 'Da' : 'Nu' %></strong></li>
+                    </ul>
+                    
+                    <div style="margin-top: 30px; display: flex; gap: 15px;">
+                        <a href="/produse" style="padding: 10px 20px; background-color: var(--culoare-contur); color: var(--culoare-fundal); text-decoration: none; border-radius: 5px; font-weight: bold;">Înapoi la Produse</a>
+                        <button style="padding: 10px 20px; background-color: var(--culoare-principala); color: var(--culoare-fundal); border: none; border-radius: 5px; font-weight: bold; cursor: pointer;">Adaugă în coș</button>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </main>
+    <%- include('../fragmente/footer.ejs') %>
+</body>
+</html>

@@ -27,14 +27,87 @@ app.get(/^\/resurse.*/, (req, res) => {
 });
 
 let obGlobal = {
-    obErori: null
+    obErori: null,
+    folderScss: path.join(__dirname, 'resurse', 'scss'),
+    folderCss: path.join(__dirname, 'resurse', 'css')
 };
 
+function compileazaScss(caleScss, caleCss) {
+    if (!caleScss) return;
+
+    let caleScssAbsoluta = path.isAbsolute(caleScss) ? caleScss : path.join(obGlobal.folderScss, caleScss);
+    let caleCssAbsoluta;
+
+    if (!caleCss) {
+        let numeScss = path.parse(caleScssAbsoluta).name;
+        caleCssAbsoluta = path.join(obGlobal.folderCss, numeScss + '.css');
+    } else {
+        caleCssAbsoluta = path.isAbsolute(caleCss) ? caleCss : path.join(obGlobal.folderCss, caleCss);
+    }
+
+    try {
+        const sass = require('sass');
+        if (fs.existsSync(caleScssAbsoluta)) {
+            if (fs.existsSync(caleCssAbsoluta)) {
+                try {
+                    let caleRelativa = path.relative(obGlobal.folderCss, caleCssAbsoluta)  ;
+                    let infoFisier = path.parse(caleRelativa);
+                    let now = new Date();
+                    let timestamp = `${now.getFullYear()}${(now.getMonth()+1).toString().padStart(2, '0')}${now.getDate().toString().padStart(2, '0')}_${now.getHours().toString().padStart(2, '0')}${now.getMinutes().toString().padStart(2, '0')}${now.getSeconds().toString().padStart(2, '0')}`;
+                    let numeNou = `${infoFisier.name}_${timestamp}${infoFisier.ext}`;
+                    let caleBackup = path.join(__dirname, 'backup', 'resurse', 'css', infoFisier.dir, numeNou);
+                    let folderBackup = path.dirname(caleBackup);
+                    if (!fs.existsSync(folderBackup)) {
+                        fs.mkdirSync(folderBackup, { recursive: true });
+                    }
+                    fs.copyFileSync(caleCssAbsoluta, caleBackup);
+                } catch (e) {
+                    console.error(`Eroare la crearea backup-ului pentru fisierul CSS vechi:`, e.message);
+                }
+            }
+
+            let rezultat = sass.compile(caleScssAbsoluta);
+            fs.writeFileSync(caleCssAbsoluta, rezultat.css);
+        } else {
+            console.error(`Fisierul SCSS nu exista: ${caleScssAbsoluta}`);
+        }
+    } catch (err) {
+        console.error(`Eroare la compilarea SCSS (${caleScssAbsoluta}):`, err.message);
+    }
+}
+
+function compileazaToateScss() {
+    if (fs.existsSync(obGlobal.folderScss)) {
+        let fisiere = fs.readdirSync(obGlobal.folderScss);
+        fisiere.forEach(fisier => {
+            if (path.extname(fisier) === '.scss') {
+                compileazaScss(fisier);
+            }
+        });
+    }
+}
+compileazaToateScss();
+
+if (fs.existsSync(obGlobal.folderScss)) {
+    fs.watch(obGlobal.folderScss, (eveniment, fisier) => {
+        if (eveniment === 'change' || eveniment === 'rename') {
+            if (fisier && path.extname(fisier) === '.scss') {
+                let caleAbsoluta = path.join(obGlobal.folderScss, fisier);
+                if (fs.existsSync(caleAbsoluta)) {
+                    compileazaScss(fisier);
+                    console.log(`[Watch] Fisierul SCSS "${fisier}" a fost compilat in urma modificarii.`);
+                }
+            }
+        }
+    });
+} else {
+    console.warn(`[Avertisment] Folderul SCSS (${obGlobal.folderScss}) nu exista. Compilarea live pe parcurs este dezactivata.`);
+}
+
 function verificaJSONErori(caleFisier) {
-    console.log("Se rulează verificarea fișierului JSON (A-D)...");
 
     if (!fs.existsSync(caleFisier)) {
-        console.error("CRITIC [A]: Fișierul 'erori.json' NU există în rădăcina proiectului!");
+        console.error("Fisierul 'erori.json' NU exista in folderul resurse/json!");
         process.exit(1); 
     }
 
@@ -43,14 +116,14 @@ function verificaJSONErori(caleFisier) {
     try {
         json = JSON.parse(textBrut);
     } catch (e) {
-        console.error("EROARE: Fișierul erori.json nu are un format JSON valid sintactic!");
+        console.error("Fisierul erori.json nu are un format JSON valid sintactic!");
         return;
     }
 
     const proprietatiBaza = ['info_erori', 'cale_baza', 'eroare_default'];
     proprietatiBaza.forEach(prop => {
         if (!json.hasOwnProperty(prop)) {
-            console.error(`EROARE [B]: Lipsește proprietatea obligatorie de bază: "${prop}"`);
+            console.error(`EROARE: Lipseste proprietatea obligatorie de baza: "${prop}"`);
         }
     });
 
@@ -58,7 +131,7 @@ function verificaJSONErori(caleFisier) {
         const propDefault = ['titlu', 'text', 'imagine'];
         propDefault.forEach(prop => {
             if (!json.eroare_default.hasOwnProperty(prop) || !json.eroare_default[prop]) {
-                console.error(`EROARE [C]: În 'eroare_default' lipsește sau este goală proprietatea: "${prop}"`);
+                console.error(`EROARE: In 'eroare_default' lipseste sau este goala proprietatea: "${prop}"`);
             }
         });
     }
@@ -66,15 +139,14 @@ function verificaJSONErori(caleFisier) {
     if (json.cale_baza) {
         const caleFolderFizic = path.join(__dirname, json.cale_baza);
         if (!fs.existsSync(caleFolderFizic) || !fs.statSync(caleFolderFizic).isDirectory()) {
-            console.error(`EROARE [D]: Folderul din 'cale_baza' (${json.cale_baza}) NU există în sistemul de fișiere!`);
+            console.error(`EROARE: Folderul din 'cale_baza' (${json.cale_baza}) NU exista in sistemul de fisiere!`);
         }
     }
-    console.log("Verificarea JSON-ului (A-D) s-a încheiat.");
 }
 
 function initErori() {
     try {
-        const caleFisier = path.join(__dirname, 'erori.json');
+        const caleFisier = path.join(__dirname, 'resurse', 'json', 'erori.json');
         verificaJSONErori(caleFisier);
         
         const dateRaw = fs.readFileSync(caleFisier, 'utf8');
@@ -94,9 +166,9 @@ function initErori() {
         }
         
         obGlobal.obErori = jsonErori;
-        console.log("Fișierul erori.json a fost încărcat cu succes în memorie!");
+        console.log("Fisierul erori.json a fost incarcat cu succes in memorie!");
     } catch (err) {
-        console.error("Eroare critică la inițializarea sistemului de erori:", err);
+        console.error("Eroare critica la initializarea sistemului de erori:", err);
     }
 }
 
@@ -114,7 +186,7 @@ vect_foldere.forEach(folder => {
 function afisareEroare(res, identificator, titlu, text, imagine) {
     const eroriData = obGlobal.obErori;
     
-    let errDefault = eroriData ? eroriData.eroare_default : { titlu: "Error", text: "An error occurred.", imagine: "" };
+    let errDefault = eroriData ? eroriData.eroare_default : { titlu: "Eroare", text: "Eroare default.", imagine: "" };
     
     let errSpecifica = null;
     if (identificator && eroriData && Array.isArray(eroriData.info_erori)) {
@@ -139,8 +211,139 @@ function afisareEroare(res, identificator, titlu, text, imagine) {
     });
 }
 
+app.use(async (req, res, next) => {
+    let imaginiAlese = [];
+    try {
+        const caleJson = path.join(__dirname, 'resurse', 'json', 'galerie.json');
+        if (fs.existsSync(caleJson)) {
+            const date = JSON.parse(fs.readFileSync(caleJson, 'utf8'));
+            const imagini = date.imagini;
+            const caleGalerie = date.cale_galerie;
+
+            const zile = ["duminica", "luni", "marti", "miercuri", "joi", "vineri", "sambata"];
+            const aziIndex = new Date().getDay();
+
+            imaginiAlese = imagini.filter(img => {
+                if (!img.intervale_zile) return true;
+                for (let interval of img.intervale_zile) {
+                    if (interval.length === 2) {
+                        let start = zile.indexOf(interval[0]);
+                        let end = zile.indexOf(interval[1]);
+                        if (start <= end) {
+                            if (aziIndex >= start && aziIndex <= end) return true;
+                        } else {
+                            if (aziIndex >= start || aziIndex <= end) return true;
+                        }
+                    }
+                }
+                return false;
+            });
+
+            if (imaginiAlese.length % 2 !== 0) {
+                imaginiAlese.pop();
+            }
+
+            for (let img of imaginiAlese) {
+                let parts = img.fisier_imagine.split('.');
+                let ext = parts.pop();
+                let base = parts.join('.');
+                let fisierMic = `${base}-mic.${ext}`;
+                let fisierMediu = `${base}-mediu.${ext}`;
+                
+                img.cale_absoluta = path.join(__dirname, caleGalerie, img.fisier_imagine);
+                img.cale_relativa = `${caleGalerie}/${img.fisier_imagine}`;
+                img.cale_mica_relativa = `${caleGalerie}/${fisierMic}`;
+                img.cale_medie_relativa = `${caleGalerie}/${fisierMediu}`;
+                
+                try {
+                    const sharp = require('sharp');
+                    const caleAbsolutaMica = path.join(__dirname, caleGalerie, fisierMic);
+                    const caleAbsolutaMedie = path.join(__dirname, caleGalerie, fisierMediu);
+                    if (fs.existsSync(img.cale_absoluta)) {
+                        if (!fs.existsSync(caleAbsolutaMica)) {
+                            await sharp(img.cale_absoluta).resize(300).toFile(caleAbsolutaMica);
+                        }
+                        if (!fs.existsSync(caleAbsolutaMedie)) {
+                            await sharp(img.cale_absoluta).resize(500).toFile(caleAbsolutaMedie);
+                        }
+                    }
+                } catch (e) {
+                    const caleAbsolutaMica = path.join(__dirname, caleGalerie, fisierMic);
+                    const caleAbsolutaMedie = path.join(__dirname, caleGalerie, fisierMediu);
+                    if (fs.existsSync(img.cale_absoluta)) {
+                        if (!fs.existsSync(caleAbsolutaMica)) {
+                            fs.copyFileSync(img.cale_absoluta, caleAbsolutaMica);
+                        }
+                        if (!fs.existsSync(caleAbsolutaMedie)) {
+                            fs.copyFileSync(img.cale_absoluta, caleAbsolutaMedie);
+                        }
+                    }
+                }
+            }
+        }
+    } catch (e) {
+        console.error("Eroare galerie:", e);
+    }
+    res.locals.imaginiGalerie = imaginiAlese;
+    next();
+});
+
+const { Pool } = require('pg');
+const pool = new Pool({
+    user: 'vinyllium_user',
+    host: 'localhost',
+    database: 'vinyllium_db',
+    password: '123456',
+    port: 5432,
+});
+
+(async () => {
+    try {
+        const result = await pool.query("SELECT unnest(enum_range(NULL::gen_muzical)) AS categorie");
+        app.locals.categorii = result.rows.map(row => row.categorie);
+        console.log("Categorii incarcate din baza de date:", app.locals.categorii);
+    } catch (err) {
+        console.error("Eroare la incarcarea categoriilor din enum:", err);
+    }
+})();
+
 app.get(['/', '/index', '/home'], (req, res) => {
     res.render('pagini/index');
+});
+
+app.get('/produse', async (req, res) => {
+    try {
+        let query = 'SELECT * FROM produse';
+        let params = [];
+        if (req.query.categorie && app.locals.categorii.includes(req.query.categorie)) {
+            query += ' WHERE categorie_mare = $1';
+            params.push(req.query.categorie);
+        }
+        const result = await pool.query(query, params);
+        res.render('pagini/produse', { produse: result.rows });
+    } catch (err) {
+        console.error("Eroare baza de date:", err);
+        afisareEroare(res, 500, "Eroare DB", "Nu s-au putut prelua produsele.", "");
+    }
+});
+
+app.get('/produs/:id', async (req, res) => {
+    try {
+        const id = parseInt(req.params.id);
+        if (isNaN(id)) {
+            return afisareEroare(res, 404, "ID invalid", "Identificatorul trebuie sa fie numeric.", "");
+        }
+        const result = await pool.query('SELECT * FROM produse WHERE id = $1', [id]);
+        if (result.rows.length === 0) {
+            return afisareEroare(res, 404, "Produs inexistent", "Nu am găsit produsul.", "");
+        }
+        // Se trimit datele produsului prin locals, conform cerinței
+        res.locals.produs = result.rows[0];
+        res.render('pagini/produs');
+    } catch (err) {
+        console.error("Eroare baza de date:", err);
+        afisareEroare(res, 500, "Eroare DB", "Eroare la preluarea detaliilor produsului.", "");
+    }
 });
 
 app.get('/favicon.ico', (req, res) => {
@@ -160,7 +363,7 @@ app.get(/.*/, (req, res) => {
             if (eroare.message.startsWith("Failed to lookup view")) {
                 afisareEroare(res, 404);
             } else {
-                afisareEroare(res, 500, "Eroare Internă Server", "A apărut o problemă la procesarea paginii pe server.");
+                afisareEroare(res, 500, "Eroare Interna Server", "A aparut o problema la procesarea paginii pe server.");
             }
         } else {
             res.send(rezultatRandare);
@@ -170,5 +373,8 @@ app.get(/.*/, (req, res) => {
 
 const PORT = 8080;
 app.listen(PORT, () => {
-    console.log(`Serverul rulează pe http://localhost:${PORT}`);
+    console.log(`Folder index.js (__dirname): ${__dirname}`);
+    console.log(`Cale fisier (__filename): ${__filename}`);
+    console.log(`Director lucru (process.cwd()): ${process.cwd()}`);
+    console.log(`Serverul ruleaza pe http://localhost:${PORT}`);
 });

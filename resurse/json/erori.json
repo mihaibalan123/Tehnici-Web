@@ -1,0 +1,31 @@
+{
+  "cale_baza": "/resurse/imagini/erori",
+  "eroare_default": {
+    "titlu": "Eroare Generică",
+    "text": "A apărut o problemă neașteptată pe server. Echipa noastră a fost notificată.",
+    "imagine": "eroare-generica.png"
+  },
+  "info_erori": [
+    {
+      "identificator": 404,
+      "status": true,
+      "titlu": "Discul nu a fost găsit (404)",
+      "text": "Ne pare rău, dar pagina sau resursa pe care o căutați nu există în magazinul Vinyllium.",
+      "imagine": "404.png"
+    },
+    {
+      "identificator": 403,
+      "status": true,
+      "titlu": "Acces Interzis (403)",
+      "text": "Nu aveți permisiunile necesare pentru a vizualiza această secțiune din magazin.",
+      "imagine": "403.png"
+    },
+    {
+      "identificator": 400,
+      "status": true,
+      "titlu": "Cerere Incorectă (400 Bad Request)",
+      "text": "Nu aveți permisiunea de a solicita direct fișierele de șablon ale serverului (.ejs).",
+      "imagine": "eroare-generica.png"
+    }
+  ]
+}

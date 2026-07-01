@@ -1,0 +1,64 @@
+{
+  "cale_galerie": "/resurse/imagini/galerie",
+  "imagini": [
+    {
+      "fisier_imagine": "img1.jpg",
+      "nume_poza": "Vinyl Rock",
+      "continut_alternativ": "Disc de vinyl clasic rock",
+      "descriere_poza": "Ediție rară The Dark Side of the Moon",
+      "intervale_zile": [["luni", "miercuri"], ["sambata", "sambata"]],
+      "licenta": "CC-BY",
+      "autor": "John Doe",
+      "link_autor": "https://unsplash.com"
+    },
+    {
+      "fisier_imagine": "img2.jpg",
+      "nume_poza": "Vinyl Pop",
+      "continut_alternativ": "Album Michael Jackson pe vinyl",
+      "descriere_poza": "Albumul Thriller, remasterizat 2026",
+      "intervale_zile": [["luni", "vineri"], ["duminica", "duminica"]]
+    },
+    {
+      "fisier_imagine": "img3.jpg",
+      "nume_poza": "Vinyl Jazz",
+      "continut_alternativ": "Album de colecție Miles Davis",
+      "descriere_poza": "Kind of Blue - o capodoperă Jazz",
+      "intervale_zile": [["luni", "duminica"]]
+    },
+    {
+      "fisier_imagine": "img4.jpg",
+      "nume_poza": "Aparat Pick-up",
+      "continut_alternativ": "Pick-up vintage din lemn masiv",
+      "descriere_poza": "Audio-Technica LP120 retro",
+      "intervale_zile": [["luni", "duminica"]]
+    },
+    {
+      "fisier_imagine": "img5.jpg",
+      "nume_poza": "Doza Pick-up",
+      "continut_alternativ": "Doză magnetică premium",
+      "descriere_poza": "Acul și doza pregătite de audiție",
+      "intervale_zile": [["luni", "duminica"]]
+    },
+    {
+      "fisier_imagine": "img6.jpg",
+      "nume_poza": "Vinyl Electronică",
+      "continut_alternativ": "Disc Daft Punk Discovery",
+      "descriere_poza": "Daft Punk Discovery, vinyl dublu",
+      "intervale_zile": [["luni", "duminica"]]
+    },
+    {
+      "fisier_imagine": "img7.jpg",
+      "nume_poza": "Boxe High-Fidelity",
+      "continut_alternativ": "Pereche de boxe de studio",
+      "descriere_poza": "Boxe de fidelitate superioară",
+      "intervale_zile": [["luni", "duminica"]]
+    },
+    {
+      "fisier_imagine": "img8.jpg",
+      "nume_poza": "Colecție Discuri",
+      "continut_alternativ": "Raft plin cu vinyl-uri colorate",
+      "descriere_poza": "Rafturile magazinului Vinyllium",
+      "intervale_zile": [["luni", "duminica"]]
+    }
+  ]
+}

@@ -24,7 +24,7 @@
     <li>
         <a href="/">
             <i class="fas fa-list-alt"></i> 
-            <span class="text-opt">Secțiuni Acasă</span>
+            <span class="text-opt">Secțiuni</span>
         </a>
         <ul class="submeniu">
             <li><a href="#welcome">Bine ați venit</a></li>
@@ -36,15 +36,17 @@
     </li>
     
     <li>
-        <a href="#">
+        <a href="/produse">
             <i class="fas fa-compact-disc"></i> 
             <span class="text-opt">Produse</span>
         </a>
         <ul class="submeniu">
-            <li><a href="/rock.html">Colecția Rock</a></li>
-            <li><a href="/jazz.html">Colecția Jazz</a></li>
-            <li><a href="/electronica.html">Electro</a></li>
-            <li><a href="/echipamente.html">Aparate Pick-up</a></li>
+            <li><a href="/produse">Toate</a></li>
+            <% if (locals.categorii) { %>
+                <% for (let categ of locals.categorii) { %>
+                    <li><a href="/produse?categorie=<%= categ %>"><%= categ %></a></li>
+                <% } %>
+            <% } %>
         </ul>
     </li>
 

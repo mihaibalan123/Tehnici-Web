@@ -251,6 +251,19 @@
 
             <div id="diverse">
                 
+                <section id="oferte-speciale" class="my-5 p-4 border rounded shadow">
+                    <h2 class="mb-4">Oferte Speciale</h2>
+                    <p class="text-custom">Descoperă acum noile ediții limitate de vinyl-uri aurii, disponibile exclusiv în magazinul nostru de colecție!</p>
+                    
+                    <div class="d-flex flex-wrap gap-3">
+                        <button class="btn btn-primary">Adaugă în coș (150 RON)</button>
+                        <button class="btn btn-secondary">Vezi Detalii</button>
+                        <button class="btn btn-outline-primary">Precomandă Album</button>
+                    </div>
+                </section>
+
+                <hr>
+
                 <section id="promotii">
                     <h2>Promoții și oferte</h2>
                     <article>
@@ -357,20 +370,7 @@
                     <img src="/resurse/imagini/briose-frisca.png" alt="doza pickup">
                     <figcaption>Doză Pick-up</figcaption>
                 </figure>
-
-                <section id="galerie-statica">
-                    <h2>Galerie</h2>
-                    <div id="grid-galerie">
-                        <figure><div><img src="/resurse/imagini/vinyl1.png" alt="vinyl"></div><figcaption>Vinyl Classic</figcaption></figure>
-                        <figure><img src="/resurse/imagini/briose-frisca.png" alt="disc muzica rock"><figcaption>Album Rock</figcaption></figure>
-                        <figure><img src="/resurse/imagini/briose-frisca.png" alt="disc muzica jazz"><figcaption>Album Jazz</figcaption></figure>
-                        <figure><img src="/resurse/imagini/briose-frisca.png" alt="disc muzica pop"><figcaption>Album Pop</figcaption></figure>
-                        <figure><img src="/resurse/imagini/briose-frisca.png" alt="echipament audio"><figcaption>Pickup Setup</figcaption></figure>
-                        <figure><img src="/resurse/imagini/briose-frisca.png" alt="boxe audio"><figcaption>Boxe Audio</figcaption></figure>
-                        <figure><img src="/resurse/imagini/briose-frisca.png" alt="magazin vinyl"><figcaption>Magazin Vinyllium</figcaption></figure>
-                    </div>
-                </section>
-
+                
                 <section id="video">
                     <h2>Configurare echipamente</h2>
                     <p>Dacă doriți să vă configurați singuri echipamentele audio de la casele dumneavoastră vă recomandăm videoclipurile de mai jos.</p>
@@ -402,6 +402,8 @@
                 
             </div> 
         </div> 
+
+        <%- include('../fragmente/galerie.ejs') %>
     </main>
     <%- include('../fragmente/footer.ejs') %>
     
